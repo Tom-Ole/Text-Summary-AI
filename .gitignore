@@ -2,8 +2,5 @@
 
 text.txt
 
+billsum_model/
 
-billsum_model/checkpoint-*
-
-
-billsum_model/*.safetensors
