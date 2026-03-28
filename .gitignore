@@ -1,0 +1,9 @@
+.env
+
+text.txt
+
+
+billsum_model/checkpoint-*
+
+
+billsum_model/*.safetensors
