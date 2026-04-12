@@ -3,6 +3,8 @@
 text.txt
 
 billsum_model/
+billsum_model/*
 
 cache_billsum/
+cache_billsum/*
 
