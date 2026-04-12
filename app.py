@@ -82,8 +82,7 @@ model = AutoModelForSeq2SeqLM.from_pretrained("./billsum_model")
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model = AutoModelForSeq2SeqLM.from_pretrained("./billsum_model").to(device)
 
-inputs = tokenizer("summarize: " + text, return_tensors="pt", 
-                   max_length=512, truncation=True).to(device)
+inputs = tokenizer("summarize: " + text, return_tensors="pt", truncation=True).to(device)
 
-outputs = model.generate(**inputs, max_new_tokens=128, num_beams=4)
+outputs = model.generate(**inputs, max_new_tokens=256, num_beams=4)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))

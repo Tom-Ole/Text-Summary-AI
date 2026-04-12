@@ -8,18 +8,15 @@ import torch
 from huggingface_hub import whoami
 import os
 
-token = os.getenv("HUGGINGFACE_TOKEN")
-
-user = whoami(token=token)
 
 BATCH_SIZE = 4
 GRAD_ACCUM = 4
 USE_FP16 = torch.cuda.is_available()
 
-billsum = load_dataset("billsum", split="train")
+billsum = load_dataset("billsum", split="train", cache_dir="./cache_billsum", save_infos=True)
 billsum = billsum.train_test_split(test_size=0.2)
 
-checkpoint = "google-t5/t5-small"
+checkpoint = "google-t5/t5-base"
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 prefix = "summarize: "
 
